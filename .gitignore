@@ -10,6 +10,12 @@
 /[Ll]ogs/
 /[Mm]emoryCaptures/
 
+#Ignores Toon Fantasy Nature 100+MB Scenes
+/[Aa]ssets/Toon Fantasy Nature/Scenes*
+/[Aa]ssets/Toon Fantasy Nature/Terrain/TFF_Terrain_Grass_1A_D.tif
+/[Aa]ssets/Toon Fantasy Nature/Terrain/TFF_Terrain_Sand_1A_D.tif
+
+
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
 
