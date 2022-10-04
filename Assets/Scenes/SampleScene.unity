@@ -266,6 +266,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &456488966 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3590169379872430084, guid: 3b1c696c0930f8345a849b46db7990f7, type: 3}
+  m_PrefabInstance: {fileID: 1683477365}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &691858142
 GameObject:
   m_ObjectHideFlags: 3
@@ -1025,6 +1030,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
+  animator: {fileID: 456488966}
   groundDistance: 0.4
   speed: 6
   gravityMultiplier: 1

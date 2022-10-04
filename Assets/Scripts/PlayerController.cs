@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
 	public Transform cam;
 	public Transform groundCheck;
 	public LayerMask groundMask;
+	public Animator animator;
 	
 	public float groundDistance = .4f;
 	public float speed = 6f;
@@ -58,7 +59,9 @@ public class PlayerController : MonoBehaviour
 		
 		
 		if(Input.GetButtonDown("Jump") && isGrounded){
+			animator.SetBool("Jump_f", true);
 			velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+			
 		}
 
 
