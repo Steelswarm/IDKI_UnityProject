@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
 	public Transform cam;
 	public Transform groundCheck;
 	public LayerMask groundMask;
-	public Animator animator;
+	public Animator foxAnimator;
 	
 	public float groundDistance = .4f;
 	public float speed = 6f;
@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
 	float turnSmoothVelocity;
 	Vector3 velocity;
 	bool isGrounded;
+	bool partyMode = false;
 	
 	
 	void Start(){
@@ -36,6 +37,11 @@ public class PlayerController : MonoBehaviour
 	{
 		
 		isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+		
+		if(isGrounded == false)
+		{
+			foxAnimator.SetBool("Jump_f", false);
+		}
 		
 		if(isGrounded && velocity.y < 0){
 			velocity.y = -2f;
@@ -54,13 +60,24 @@ public class PlayerController : MonoBehaviour
 			
 			Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
 			
+			foxAnimator.SetBool("playerIsMoving", true);
 			controller.Move(moveDirection.normalized * speed * Time.deltaTime);
-		}
+		} else {foxAnimator.SetBool("playerIsMoving", false);}
 		
 		
 		if(Input.GetButtonDown("Jump") && isGrounded){
-			animator.SetBool("Jump_f", true);
+			foxAnimator.SetBool("playerIsMoving", false);
+			foxAnimator.SetBool("Jump_f", true);
+			foxAnimator.SetTrigger("Jump_trigger");
+			
 			velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+			
+		}
+		
+		if(Input.GetKeyDown("m") && isGrounded){
+			partyMode = !partyMode;
+			foxAnimator.SetBool("SPIN!!!", partyMode);
+			
 			
 		}
 
