@@ -15,6 +15,9 @@
 /[Aa]ssets/Toon Fantasy Nature/Terrain/TFF_Terrain_Grass_1A_D.tif
 /[Aa]ssets/Toon Fantasy Nature/Terrain/TFF_Terrain_Sand_1A_D.tif
 
+#Ignores Sample Scene
+
+/[Aa]ssets/Scenes/SampleScene.unity
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
