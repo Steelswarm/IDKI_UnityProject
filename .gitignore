@@ -18,6 +18,7 @@
 #Ignores Sample Scene
 
 /[Aa]ssets/Scenes/SampleScene.unity
+/[Aa]ssets/Scenes/Demo_Scene_Lake_3.unity
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta

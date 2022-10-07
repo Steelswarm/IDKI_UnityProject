@@ -30,14 +30,14 @@ public class SpawnManager : MonoBehaviour
 		MyTerrainData = MyTerrain.terrainData;
 		
 		randomPosList = new List<Vector3>();
-		for (int i = 0; i < collectibleAmount; i++)
+		for (int i = 0; i < collectibleAmount; i++) //Gets apple coordinate list
 		{
 			createNewCollectible();
 		}
 		
 
 		
-		for(int x = 0; x < randomPosList.Count; x++)
+		for(int x = 0; x < randomPosList.Count; x++) //Spawns apples
 		{
 			Instantiate(collectiblePrefab, randomPosList[x], collectiblePrefab.transform.rotation);
 		}
@@ -53,19 +53,13 @@ public class SpawnManager : MonoBehaviour
 	    float spawnPosZ = Random.Range(minZ, maxZ);
 
 		
-	    //Debug.Log("TERRAIN HEIGHT IS: " + MyTerrainData.GetHeight((int)spawnPosX,(int)spawnPosZ));
+
 	    float terrainHeight = MyTerrainData.GetHeight((int)spawnPosX,(int)spawnPosZ);
-	    //Debug.Log(MyTerrainData.GetHeight(0,0));
-	    Vector3 randomPos = new Vector3(spawnPosX, terrainHeight, spawnPosZ);
-        //Debug.Log(randomPos);
+
+	    Vector3 randomPos = new Vector3(spawnPosX, minY, spawnPosZ);
+
         return randomPos;
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        
-    }
-    
     
     
 	private void CheckifCoordsValid(List<Vector3> vectorList, Vector3 vector) //Checks if the given vector is far enough away from the others to avoid objects spawning too close
@@ -100,14 +94,7 @@ public class SpawnManager : MonoBehaviour
 		
 		Vector3 randomPos = GenerateSpawnPosition();
 		CheckifCoordsValid(randomPosList, randomPos);
-		//Instantiate(collectiblePrefab, GenerateSpawnPosition(), collectiblePrefab.transform.rotation);
 		
 	}
-    
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
 }
